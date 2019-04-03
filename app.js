@@ -13,5 +13,8 @@ submit.addEventListener('click',e => {
     input.value = '';
 });
 
+//firestore
+db.collection
+
 
 
