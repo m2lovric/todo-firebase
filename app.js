@@ -3,18 +3,32 @@ let list = document.querySelector('#item-list');
 let submit = document.querySelector('button');
 let value;
 
+let renderTasks = (doc) => {
+    let li = document.createElement('li');
+    li.setAttribute('data.id', doc.id);
+    let task = document.createElement('span');
+    let importance = document.createElement('span');
+
+    task.textContent = doc.data().task;
+    importance.textContent = doc.data().importance;
+    li.appendChild(task);
+    li.appendChild(importance);
+    list.append(li);
+}
+
 submit.addEventListener('click',e => {
     e.preventDefault();
     value = input.value;
-    let li = document.createElement('li');
-    let text = document.createTextNode(value);
-    li.append(text);
-    list.append(li);
+    
     input.value = '';
 });
 
 //firestore
-db.collection
+db.collection('tasks').get().then((s) => {
+    s.docs.forEach(el => {
+        renderTasks(el);
+    });
+});
 
 
 
