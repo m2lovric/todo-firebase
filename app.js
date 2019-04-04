@@ -8,6 +8,7 @@ let renderTasks = (doc) => {
     li.setAttribute('data.id', doc.id);
     let task = document.createElement('span');
     let importance = document.createElement('span');
+    importance.setAttribute('class', 'rating');
 
     task.textContent = doc.data().task;
     importance.textContent = doc.data().importance;
