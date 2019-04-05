@@ -54,9 +54,23 @@ ul {
     margin-left: 10px;
 }
 
-.rating{
-    right: 0;
-    float: right;
-    margin-right: 20px;
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
+li span {
+    flex-basis: 80%;
+}
+
+li div {
+    flex-basis: 10%;
+}
+
+.rating {
+    flex-basis: 10%;
+}
+
+
 
