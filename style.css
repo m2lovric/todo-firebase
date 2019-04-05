@@ -19,9 +19,9 @@ button{
     width: 100%;
     height: 40px;
     margin-top: 10px;
-    background-color: #badc58;
+    background-color: #eb4d4b;
     border-radius: 5px;
-    border: 1px solid #badc58;
+    border: 1px solid #eb4d4b;
     color: white;
     font-size: 24px;
     font-family: 'Lato', sans-serif;
@@ -47,14 +47,16 @@ section{
     margin-top: 40px;
 }
 
-ul li {
+ul {
     list-style: none;
     font-size: 2em;
+    padding: 0;
+    margin-left: 10px;
 }
 
 .rating{
     right: 0;
     float: right;
-    margin-right: 40px;
+    margin-right: 20px;
 }
 
