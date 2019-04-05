@@ -28,19 +28,6 @@ let renderTasks = (doc) => {
     })
 }
 
-//firestore
-db.collection('tasks').orderBy('importance', 'desc').onSnapshot(s => {
-    let changes = s.docChanges();
-    changes.forEach(change => {
-        if(change.type == 'added'){
-            renderTasks(change.doc);
-        }else if(change.type == 'removed'){
-            let li = list.querySelector(`[data-id="${change.doc.id}"]`);
-            list.removeChild(li);
-        }
-    });
-})
-
 //saving data
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -50,5 +37,19 @@ form.addEventListener('submit', e => {
     });
     form.num.value = '';
     form.txt.value = '';
+})
+
+//firestore
+db.collection('tasks').orderBy('importance', 'desc').onSnapshot(s => {
+    let changes = s.docChanges();
+    console.log(s);
+    changes.forEach(change => {
+        if(change.type == 'added'){
+            renderTasks(change.doc);
+        }else if(change.type == 'removed'){
+            let li = list.querySelector(`[data-id="${change.doc.id}"]`);
+            list.removeChild(li);
+        }
+    });
 })
 
